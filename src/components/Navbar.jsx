@@ -6,6 +6,17 @@ function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
     const [isLastActiveElement, setIsLastActiveElement] = useState("")
 
+    const handleOnMouseEnter = () => {
+        setTimeout(() => {
+            setIsOpen(true)
+        }, 300)
+    }
+
+    const handleOnMouseLeave = () => {
+        setIsOpen(false)
+
+    }
+
     const handleKeyDown = e => {
         if (e.key !== "Tab") {
             e.preventDefault()
@@ -17,16 +28,16 @@ function Navbar() {
 
     return (
         <nav aria-label="Menu principal" className='bg-slate-50 relative h-14'>
-            <div className="container items-center flex m-auto h-full">
+            <div className="container items-center flex gap-5 m-auto h-full">
                 <h1 className="text-3xl">Navbar</h1>
-                <menu className="flex h-full">
+                <menu className="flex h-full gap-5">
                     <li aria-expanded={isOpen}
                         aria-controls="megamenu"
                         className='h-full items-center'
-                        onMouseEnter={() => setIsOpen(true)}
-                        onMouseLeave={() => setIsOpen(false)}
+                        onMouseEnter={handleOnMouseEnter}
+                        onMouseLeave={handleOnMouseLeave}
                         onKeyDown={handleKeyDown}
-                    ><a className="pr-5 pl-5 relative top-4" href="">Services</a>
+                    ><a className="relative top-4" href="">Services</a>
 
                         <CSSTransition 
                             in={isOpen} 
@@ -69,8 +80,8 @@ function Navbar() {
                             </div>
                         </CSSTransition>
                     </li>
-                    <li><a className="p-5 relative top-4" href="">About</a></li>
-                    <li><a className="p-5 relative top-4" href="">Contact</a></li>
+                    <li><a className="relative top-4" href="">About</a></li>
+                    <li><a className="relative top-4" href="">Contact</a></li>
                 </menu>
             </div>
 
