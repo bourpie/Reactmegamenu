@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.megamenu {
+  z-index: -1;
+}
+
+.megamenu-enter {
+  opacity: 0;
+  transform: translateY(-120%);
+}
+
+.megamenu-enter-active {
+  opacity: 1;
+  transform: translateY(10px);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.megamenu-enter-done {
+  opacity: 1;
+  transform: translateY(10px);
+}
+
+.megamenu-exit {
+  opacity: 1;
+  transform: translateY(10px);
+}
+
+.megamenu-exit-active {
+  opacity: 0;
+  transform: translateY(-120%);
+  transition: opacity 800ms, transform 400ms;
+}
+
+.megamenu-exit-done {
+  opacity: 0;
+  transform: translateY(-120%);
+}
